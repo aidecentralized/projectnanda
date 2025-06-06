@@ -1,14 +1,4 @@
 /* Reset and Base Styles */
-:root {
-    --bg-color: #1c1c1e;
-    --text-color: #e5e7eb;
-    --text-secondary: #9ca3af;
-    --surface-color: #2a2a2d;
-    --border-color: #3f3f46;
-    --accent-color: #7b61ff;
-    --accent-hover: #8f74ff;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -17,8 +7,8 @@
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: var(--bg-color);
-    color: var(--text-color);
+    background: #ffffff;
+    color: #1a1a1a;
     line-height: 1.7;
     margin: 0;
     padding: 0;
@@ -35,9 +25,9 @@ body {
 
 /* Navigation */
 .navbar {
-    background: rgba(33, 33, 33, 0.95);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid #eaeaea;
     position: fixed;
     top: 0;
     left: 0;
@@ -60,7 +50,7 @@ body {
 .nav-logo .brand {
     font-size: 19px;
     font-weight: 700;
-    color: #ffffff;
+    color: #000000;
     text-decoration: none;
     letter-spacing: -0.02em;
 }
@@ -72,7 +62,7 @@ body {
 }
 
 .nav-link {
-    color: var(--text-secondary);
+    color: #525252;
     text-decoration: none;
     font-size: 15px;
     font-weight: 450;
@@ -81,7 +71,7 @@ body {
 }
 
 .nav-link:hover {
-    color: var(--text-color);
+    color: #000000;
 }
 
 .hamburger {
@@ -93,7 +83,7 @@ body {
 .bar {
     width: 22px;
     height: 2px;
-    background: var(--text-color);
+    background: #1a1a1a;
     margin: 3px 0;
     transition: 0.3s;
     border-radius: 1px;
@@ -101,7 +91,7 @@ body {
 
 /* Hero Sections */
 .hero {
-    background: linear-gradient(180deg, #1f1f21, #18181b);
+    background: #ffffff;
     padding: 140px 0 80px;
     text-align: center;
     width: 100%;
@@ -119,7 +109,7 @@ body {
     font-size: 48px;
     font-weight: 700;
     margin: 0 auto 24px auto;
-    color: #ffffff;
+    color: #000000;
     letter-spacing: -0.03em;
     line-height: 1.2;
     text-align: center;
@@ -128,7 +118,7 @@ body {
 
 .hero-subtitle {
     font-size: 22px;
-    color: var(--text-secondary);
+    color: #525252;
     margin: 0 auto 28px auto;
     font-weight: 450;
     letter-spacing: -0.01em;
@@ -139,7 +129,7 @@ body {
 
 .hero p {
     font-size: 18px;
-    color: var(--text-secondary);
+    color: #525252;
     line-height: 1.6;
     max-width: 600px;
     margin: 0 auto;
@@ -157,7 +147,7 @@ body {
 .section {
     margin-bottom: 64px;
     padding-bottom: 40px;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid #f5f5f5;
 }
 
 .section:last-child {
@@ -169,14 +159,14 @@ body {
     font-size: 20px;
     font-weight: 650;
     margin: 0 0 28px 0;
-    color: #ffffff;
+    color: #000000;
     letter-spacing: -0.02em;
     text-align: center;
 }
 
 .section p {
     font-size: 16px;
-    color: var(--text-secondary);
+    color: #525252;
     line-height: 1.6;
     margin-bottom: 20px;
 }
@@ -191,7 +181,7 @@ body {
 .item {
     margin-bottom: 32px;
     padding-bottom: 20px;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid #f5f5f5;
 }
 
 .item:last-child {
@@ -204,31 +194,31 @@ body {
     font-size: 17px;
     font-weight: 600;
     margin: 0 0 8px 0;
-    color: #ffffff;
+    color: #000000;
     line-height: 1.4;
     letter-spacing: -0.01em;
 }
 
 .item-title a {
-    color: #ffffff;
+    color: #000000;
     text-decoration: none;
     transition: color 0.15s ease;
 }
 
 .item-title a:hover {
-    color: var(--accent-color);
+    color: #404040;
 }
 
 .item-desc {
     font-size: 15px;
-    color: var(--text-secondary);
+    color: #525252;
     margin: 0 0 12px 0;
     line-height: 1.6;
 }
 
 .item-meta {
     font-size: 13px;
-    color: var(--text-secondary);
+    color: #737373;
     margin: 0;
     font-weight: 450;
 }
@@ -237,7 +227,7 @@ body {
 .btn {
     display: inline-block;
     padding: 10px 20px;
-    background: var(--accent-color);
+    background: #000000;
     color: #ffffff;
     text-decoration: none;
     border-radius: 6px;
@@ -250,23 +240,23 @@ body {
 }
 
 .btn:hover {
-    background: var(--accent-hover);
+    background: #1a1a1a;
     transform: translateY(-1px);
 }
 
 .btn-secondary {
-    background: var(--surface-color);
-    color: var(--text-color);
-    border: 1px solid var(--border-color);
+    background: #f8f8f8;
+    color: #1a1a1a;
+    border: 1px solid #e5e5e5;
 }
 
 .btn-secondary:hover {
-    background: #3d3d42;
-    border-color: var(--border-color);
+    background: #f0f0f0;
+    border-color: #d4d4d4;
 }
 
 .link {
-    color: var(--accent-color);
+    color: #0066cc;
     text-decoration: none;
     font-size: 15px;
     font-weight: 500;
@@ -274,14 +264,14 @@ body {
 }
 
 .link:hover {
-    color: var(--accent-hover);
+    color: #0052a3;
     text-decoration: underline;
 }
 
 /* Stats and Metrics */
 .stats {
-    background: var(--surface-color);
-    border: 1px solid var(--border-color);
+    background: #fafafa;
+    border: 1px solid #eaeaea;
     border-radius: 8px;
     padding: 28px;
     margin: 48px 0;
@@ -291,7 +281,7 @@ body {
     font-size: 16px;
     font-weight: 600;
     margin: 0 0 20px 0;
-    color: #ffffff;
+    color: #000000;
     letter-spacing: -0.01em;
 }
 
@@ -308,7 +298,7 @@ body {
 .stat-number {
     font-size: 24px;
     font-weight: 700;
-    color: #ffffff;
+    color: #000000;
     display: block;
     margin-bottom: 6px;
     letter-spacing: -0.02em;
@@ -316,7 +306,7 @@ body {
 
 .stat-label {
     font-size: 13px;
-    color: var(--text-secondary);
+    color: #525252;
     font-weight: 450;
 }
 
@@ -333,18 +323,18 @@ body {
 }
 
 .status-active {
-    background: #2e7d32;
-    color: #e5e7eb;
+    background: #f0f9f0;
+    color: #166534;
 }
 
 .status-beta {
-    background: #92400e;
-    color: #ffffff;
+    background: #fef3c7;
+    color: #92400e;
 }
 
 .status-development {
-    background: #374151;
-    color: #e5e7eb;
+    background: #f3f4f6;
+    color: #374151;
 }
 
 /* Video and Media */
@@ -356,7 +346,7 @@ body {
     margin: 20px 0;
     border-radius: 8px;
     overflow: hidden;
-    border: 1px solid var(--border-color);
+    border: 1px solid #eaeaea;
 }
 
 .video-container iframe {
@@ -370,8 +360,8 @@ body {
 
 /* Footer */
 .footer {
-    background: var(--surface-color);
-    border-top: 1px solid var(--border-color);
+    background: #fafafa;
+    border-top: 1px solid #eaeaea;
     padding: 48px 0 24px;
     margin-top: 80px;
 }
@@ -387,13 +377,13 @@ body {
     font-size: 15px;
     font-weight: 600;
     margin-bottom: 16px;
-    color: #ffffff;
+    color: #000000;
     letter-spacing: -0.01em;
 }
 
 .footer p, .footer li {
     font-size: 14px;
-    color: var(--text-secondary);
+    color: #525252;
     margin-bottom: 8px;
     line-height: 1.5;
 }
@@ -404,30 +394,30 @@ body {
 }
 
 .footer a {
-    color: var(--text-secondary);
+    color: #525252;
     text-decoration: none;
     font-size: 14px;
     transition: color 0.15s ease;
 }
 
 .footer a:hover {
-    color: var(--text-color);
+    color: #000000;
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 24px;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid #eaeaea;
 }
 
 .footer-bottom p {
     font-size: 13px;
-    color: var(--text-secondary);
+    color: #737373;
 }
 
 .footer-note {
-    background: var(--surface-color);
-    border: 1px solid var(--border-color);
+    background: #fafafa;
+    border: 1px solid #eaeaea;
     border-radius: 8px;
     padding: 24px;
     margin-top: 48px;
@@ -436,13 +426,13 @@ body {
 
 .footer-note p {
     font-size: 14px;
-    color: var(--text-secondary);
+    color: #525252;
     margin: 0;
     line-height: 1.6;
 }
 
 .footer-note a {
-    color: var(--accent-color);
+    color: #0066cc;
     text-decoration: none;
 }
 
@@ -461,17 +451,17 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--surface-color);
+    background: #f5f5f5;
     border-radius: 6px;
-    color: var(--text-secondary);
+    color: #525252;
     text-decoration: none;
     font-size: 16px;
     transition: all 0.15s ease;
 }
 
 .social-link:hover {
-    background: #3d3d42;
-    color: var(--text-color);
+    background: #e5e5e5;
+    color: #1a1a1a;
     transform: translateY(-1px);
 }
 
