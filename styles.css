@@ -1,12 +1,12 @@
 /* Reset and Base Styles */
 :root {
-    --bg-color: #1c1c1e;
-    --text-color: #e5e7eb;
-    --text-secondary: #9ca3af;
-    --surface-color: #2a2a2d;
-    --border-color: #3f3f46;
-    --accent-color: #7b61ff;
-    --accent-hover: #8f74ff;
+    --bg-color: #f8fafc;
+    --text-color: #1e293b;
+    --text-secondary: #475569;
+    --surface-color: #ffffff;
+    --border-color: #d1d5db;
+    --accent-color: #2563eb;
+    --accent-hover: #1d4ed8;
 }
 
 * {
@@ -35,7 +35,7 @@ body {
 
 /* Navigation */
 .navbar {
-    background: rgba(33, 33, 33, 0.95);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-color);
     position: fixed;
@@ -60,7 +60,7 @@ body {
 .nav-logo .brand {
     font-size: 19px;
     font-weight: 700;
-    color: #ffffff;
+    color: var(--accent-color);
     text-decoration: none;
     letter-spacing: -0.02em;
 }
@@ -81,7 +81,7 @@ body {
 }
 
 .nav-link:hover {
-    color: var(--text-color);
+    color: var(--accent-color);
 }
 
 .hamburger {
@@ -101,7 +101,7 @@ body {
 
 /* Hero Sections */
 .hero {
-    background: linear-gradient(180deg, #1f1f21, #18181b);
+    background: linear-gradient(180deg, #f1f5f9, #e0e7ef);
     padding: 140px 0 80px;
     text-align: center;
     width: 100%;
@@ -119,7 +119,7 @@ body {
     font-size: 48px;
     font-weight: 700;
     margin: 0 auto 24px auto;
-    color: #ffffff;
+    color: var(--accent-color);
     letter-spacing: -0.03em;
     line-height: 1.2;
     text-align: center;
@@ -169,7 +169,7 @@ body {
     font-size: 20px;
     font-weight: 650;
     margin: 0 0 28px 0;
-    color: #ffffff;
+    color: var(--accent-color);
     letter-spacing: -0.02em;
     text-align: center;
 }
@@ -204,19 +204,19 @@ body {
     font-size: 17px;
     font-weight: 600;
     margin: 0 0 8px 0;
-    color: #ffffff;
+    color: var(--accent-color);
     line-height: 1.4;
     letter-spacing: -0.01em;
 }
 
 .item-title a {
-    color: #ffffff;
+    color: var(--accent-color);
     text-decoration: none;
     transition: color 0.15s ease;
 }
 
 .item-title a:hover {
-    color: var(--accent-color);
+    color: var(--accent-hover);
 }
 
 .item-desc {
@@ -238,7 +238,7 @@ body {
     display: inline-block;
     padding: 10px 20px;
     background: var(--accent-color);
-    color: #ffffff;
+    color: #fff;
     text-decoration: none;
     border-radius: 6px;
     font-size: 15px;
@@ -255,14 +255,25 @@ body {
 }
 
 .btn-secondary {
-    background: var(--surface-color);
-    color: var(--text-color);
-    border: 1px solid var(--border-color);
+    background: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
 }
 
 .btn-secondary:hover {
-    background: #3d3d42;
-    border-color: var(--border-color);
+    background: var(--accent-color);
+    color: #fff;
+}
+
+.btn-details {
+    background: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+}
+
+.btn-details:hover {
+    background: var(--accent-color);
+    color: #fff;
 }
 
 .link {
@@ -291,7 +302,7 @@ body {
     font-size: 16px;
     font-weight: 600;
     margin: 0 0 20px 0;
-    color: #ffffff;
+    color: var(--text-color);
     letter-spacing: -0.01em;
 }
 
@@ -308,7 +319,7 @@ body {
 .stat-number {
     font-size: 24px;
     font-weight: 700;
-    color: #ffffff;
+    color: var(--text-color);
     display: block;
     margin-bottom: 6px;
     letter-spacing: -0.02em;
@@ -370,7 +381,7 @@ body {
 
 /* Footer */
 .footer {
-    background: var(--surface-color);
+    background: #f1f5f9;
     border-top: 1px solid var(--border-color);
     padding: 48px 0 24px;
     margin-top: 80px;
@@ -387,7 +398,7 @@ body {
     font-size: 15px;
     font-weight: 600;
     margin-bottom: 16px;
-    color: #ffffff;
+    color: var(--text-color);
     letter-spacing: -0.01em;
 }
 
@@ -404,14 +415,14 @@ body {
 }
 
 .footer a {
-    color: var(--text-secondary);
+    color: var(--accent-color);
     text-decoration: none;
     font-size: 14px;
     transition: color 0.15s ease;
 }
 
 .footer a:hover {
-    color: var(--text-color);
+    color: var(--accent-hover);
 }
 
 .footer-bottom {
@@ -568,4 +579,28 @@ body {
     .main-container {
         padding: 50px 16px 60px;
     }
+}
+
+.event-card, .item {
+    background: var(--surface-color);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    padding: 32px;
+    margin-bottom: 24px;
+    transition: all 0.3s ease;
+}
+
+.event-card:hover, .item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    border-color: var(--accent-color);
+}
+
+.event-meta, .item-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    color: var(--text-secondary);
 } 
