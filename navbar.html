@@ -1,23 +1,43 @@
-<nav class="navbar">
+<nav class="navbar" role="navigation" aria-label="Main Navigation">
     <div class="nav-container">
-        <div class="nav-logo">
-            <div class="logo-text">
-                <a href="index.html" class="brand">NANDA</a>
-            </div>
+        <div class="nav-logo" style="display: flex; align-items: center; gap: 10px;">
+            <!-- Placeholder SVG Logo -->
+            <a href="index.html" class="brand" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
+                <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                    <circle cx="16" cy="16" r="14" fill="var(--accent-color)"/>
+                    <text x="16" y="21" text-anchor="middle" font-size="14" fill="#fff" font-family="Inter, Arial, sans-serif">N</text>
+                </svg>
+                <span style="font-weight: 700; font-size: 19px; color: var(--accent-color);">NANDA</span>
+            </a>
         </div>
         <ul class="nav-menu">
-            <li><a href="index.html" class="nav-link">Home</a></li>
-            <li><a href="index.html#about" class="nav-link">About</a></li>
-            <li><a href="papers.html" class="nav-link">Papers</a></li>
-            <li><a href="videos.html" class="nav-link">Videos</a></li>
-            <li><a href="blog.html" class="nav-link">Blog</a></li>
-            <li><a href="applications.html" class="nav-link">Applications</a></li>
-            <li><a href="events.html" class="nav-link">Events</a></li>
+            <li><a href="/index.html" class="nav-link" id="nav-home">Home</a></li>
+            <li><a href="/index.html#about" class="nav-link" id="nav-about">About</a></li>
+            <li><a href="/papers.html" class="nav-link" id="nav-papers">Papers</a></li>
+            <li><a href="/videos.html" class="nav-link" id="nav-videos">Videos</a></li>
+            <li><a href="/blog.html" class="nav-link" id="nav-blog">Blog</a></li>
+            <li><a href="/applications.html" class="nav-link" id="nav-applications">Applications</a></li>
+            <li><a href="/events.html" class="nav-link" id="nav-events">Events</a></li>
         </ul>
-        <div class="hamburger">
+        <div class="hamburger" aria-label="Open navigation menu" tabindex="0" role="button">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </div>
     </div>
 </nav>
+<script>
+// Highlight active nav link
+const path = window.location.pathname.split('/').pop();
+const navMap = {
+  'index.html': 'nav-home',
+  'papers.html': 'nav-papers',
+  'videos.html': 'nav-videos',
+  'blog.html': 'nav-blog',
+  'applications.html': 'nav-applications',
+  'events.html': 'nav-events'
+};
+const activeId = navMap[path] || (window.location.hash === '#about' ? 'nav-about' : 'nav-home');
+const activeLink = document.getElementById(activeId);
+if (activeLink) activeLink.classList.add('active');
+</script>
