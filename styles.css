@@ -26,9 +26,9 @@ body {
 
 /* Navigation */
 .navbar {
-    background: rgba(248, 250, 252, 0.85);
+    background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
     position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 64px;
 }
 .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; height: 100%; text-align: left; }
@@ -42,7 +42,10 @@ body {
 
 /* Hero Sections */
 .hero {
-    background: var(--bg-color); /* Updated from gradient in color palette refinement */
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
     padding: 140px 0 80px; text-align: center; width: 100%;
 }
 .hero .container { text-align: center; max-width: 760px; margin: 0 auto; padding: 0 24px; }
@@ -51,7 +54,16 @@ body {
 .hero p { font-size: 17px; /* Typo update */ color: var(--text-secondary); line-height: 1.6; max-width: 600px; margin: 0 auto; text-align: center; width: 100%; }
 
 /* Main Content */
-.main-container { max-width: 1000px; margin: 0 auto; padding: 64px 24px 100px; }
+.main-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 64px 24px 100px;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
 .section { /* Layout/Spacing update: made transparent, no border/shadow */
     margin-bottom: 64px;
     padding: 32px 0; /* Layout/Spacing update */
@@ -62,17 +74,17 @@ body {
 
 /* Cards and Items - This is the consolidated card style from Layout/Spacing update */
 .event-card, .item {
-    background: rgba(248, 250, 252, 0.75);
-    backdrop-filter: blur(12px);
+    background: var(--surface-color);
     border-radius: 12px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
     padding: 32px;
     margin-bottom: 24px;
     transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 .event-card:hover, .item:hover {
     transform: translateY(-4px);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.08); /* Subtle shadow after initial redesign */
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
     border-color: var(--accent-color);
 }
 .item-list { list-style: none; padding: 0; margin: 0; }
