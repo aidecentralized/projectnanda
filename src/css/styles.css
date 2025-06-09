@@ -35,9 +35,9 @@ body {
 
 /* Navigation */
 .navbar {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(248, 250, 252, 0.85);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
     position: fixed;
     top: 0;
     left: 0;
@@ -224,20 +224,22 @@ body {
 .btn {
     display: inline-block;
     padding: 12px 24px;
-    background: var(--accent-color);
-    color: #fff;
+    background: rgba(37, 99, 235, 0.25);
+    color: var(--accent-color);
     text-decoration: none;
     border-radius: 8px;
     font-size: 15px;
     font-weight: 500;
     transition: all 0.15s ease;
-    border: none;
+    border: 1px solid rgba(37, 99, 235, 0.4);
     cursor: pointer;
     letter-spacing: -0.01em;
+    backdrop-filter: blur(8px);
 }
 
 .btn:hover {
-    background: var(--accent-hover);
+    background: rgba(29, 78, 216, 0.35);
+    border-color: rgba(29, 78, 216, 0.5);
     transform: translateY(-1px);
 }
 
@@ -590,9 +592,10 @@ body {
 }
 
 .event-card, .item {
-    background: var(--surface-color);
+    background: rgba(248, 250, 252, 0.75);
+    backdrop-filter: blur(12px);
     border-radius: 12px;
-    border: 1px solid #e5e7eb;
+    border: 1px solid rgba(0, 0, 0, 0.05);
     padding: 32px;
     margin-bottom: 24px;
     transition: all 0.3s ease;
