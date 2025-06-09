@@ -1,0 +1,26 @@
+---
+layout: layouts/base.njk
+---
+<div class="main-container">
+    <article class="section blog-post">
+        <div style="margin-bottom: 16px;">
+            <a href="{{ '/blog.html' | url }}" class="link">← Back to Blog</a>
+        </div>
+        <h1>{{ title }}</h1> {# Assuming h1 style is handled by CSS or can be default #}
+        {% if date or author or tags %}
+        <div class="item-meta" style="margin-bottom: 32px; font-size: 14px;">
+            {% if author %}<span>{{ author }}</span>{% endif %}
+            {% if date %}<span>{{ date }}</span>{% endif %} {# Simple date display for now #}
+            {% if tags %}
+                {% set displayTags = tags | filter("tag => tag !== 'post'") %}
+                {% if displayTags.length > 0 %}
+                <span>{{ displayTags | join: ", " }}</span>
+                {% endif %}
+            {% endif %}
+        </div>
+        {% endif %}
+        <div style="line-height: 1.7; color: var(--text-secondary);">
+            {{ content | safe }}
+        </div>
+    </article>
+</div>
