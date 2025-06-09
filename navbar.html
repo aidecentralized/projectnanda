@@ -1,7 +1,6 @@
 <nav class="navbar" role="navigation" aria-label="Main Navigation">
     <div class="nav-container">
         <div class="nav-logo" style="display: flex; align-items: center; gap: 10px;">
-            <!-- Placeholder SVG Logo -->
             <a href="index.html" class="brand" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
                 <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
                     <circle cx="16" cy="16" r="14" fill="var(--accent-color)"/>
@@ -27,17 +26,30 @@
     </div>
 </nav>
 <script>
-// Highlight active nav link
-const path = window.location.pathname.split('/').pop();
-const navMap = {
-  'index.html': 'nav-home',
-  'papers.html': 'nav-papers',
-  'videos.html': 'nav-videos',
-  'blog.html': 'nav-blog',
-  'applications.html': 'nav-applications',
-  'events.html': 'nav-events'
-};
-const activeId = navMap[path] || (window.location.hash === '#about' ? 'nav-about' : 'nav-home');
-const activeLink = document.getElementById(activeId);
-if (activeLink) activeLink.classList.add('active');
+// Highlight active nav link (original client-side script)
+document.addEventListener('DOMContentLoaded', () => {
+    const path = window.location.pathname.split('/').pop();
+    const navMap = {
+      'index.html': 'nav-home',
+      'papers.html': 'nav-papers',
+      'videos.html': 'nav-videos',
+      'blog.html': 'nav-blog',
+      'applications.html': 'nav-applications',
+      'events.html': 'nav-events'
+    };
+    // Handle case where path might be empty if accessing root (e.g. "domain.com/")
+    const currentFile = path === '' ? 'index.html' : path;
+    let activeId = navMap[currentFile];
+
+    if (!activeId && window.location.hash === '#about' && currentFile === 'index.html') {
+        activeId = 'nav-about';
+    } else if (!activeId && currentFile === 'index.html') {
+         activeId = 'nav-home';
+    }
+
+    const activeLink = document.getElementById(activeId);
+    if (activeLink) {
+        activeLink.classList.add('active');
+    }
+});
 </script>
