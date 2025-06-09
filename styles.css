@@ -163,3 +163,58 @@ body {
     .main-container { padding: 50px 16px 60px; }
     /* ... (other responsive styles for stats) ... */
 }
+
+/* Icon styling for paper links */
+.item-title .fas.fa-external-link-alt {
+    font-size: 0.85em;
+    margin-left: 0.5em;
+    opacity: 0.6;
+    transition: opacity 0.15s ease;
+    vertical-align: baseline; /* Helps with alignment if font sizes differ slightly */
+}
+
+.item:hover .item-title .fas.fa-external-link-alt {
+    opacity: 0.8;
+}
+
+/* Placeholder for Hero Background Graphic - CSS Comment Example */
+/*
+.hero {
+   background-image: url('path/to/your/hero-background-image.jpg');
+   background-size: cover;
+   background-position: center;
+   position: relative; // Ensure it's a positioning context if needed for overlays
+}
+.hero::before { // Optional overlay for text readability
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.3); // Example dark overlay
+}
+*/
+
+/* Styling for div based graphic placeholders */
+.graphic-placeholder {
+    min-height: 150px;
+    background-color: #e9ecef; /* Light placeholder background */
+    border: 2px dashed #ced4da; /* Dashed border */
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #6c757d; /* Placeholder text color */
+    font-size: 16px;
+    padding: 20px;
+    margin: 30px auto; /* Auto horizontal margins for centering if max-width is applied */
+    max-width: 70%;   /* Make it responsive, up to 70% of its container */
+    box-sizing: border-box; /* Ensure padding and border are included in width/height */
+}
+
+.graphic-placeholder::before {
+    content: "Placeholder: " attr(data-placeholder-info);
+    display: block;
+}
