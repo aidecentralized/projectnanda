@@ -507,3 +507,78 @@ body.dark-mode {
     line-height: 1.6;
     margin-bottom: 0; /* As it's the last element in the card */
 }
+
+/* Video Grid Layout for videos.html */
+.video-grid-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    padding-left: 0; /* Reset default ul padding */
+    list-style: none; /* Remove list bullets */
+}
+
+.video-grid-list > .video-item {
+    /* .item class provides base card styling */
+    display: flex; /* Allows content within to stretch if needed */
+    flex-direction: column;
+}
+
+.video-thumbnail-container {
+    position: relative; /* For play icon positioning */
+    cursor: pointer;
+    margin-bottom: 10px; /* Space between thumbnail and text below */
+    background-color: #000; /* Fallback for non-16:9 thumbnails */
+    border-radius: 8px; /* Consistent rounding */
+    overflow: hidden; /* Ensures play icon or image zoom doesn't break rounded corners */
+    transition: box-shadow 0.3s ease; /* Add transition for hover shadow */
+}
+
+.video-thumbnail-container:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* Add a subtle shadow on hover */
+}
+
+.video-thumbnail-container img {
+    width: 100%;
+    display: block;
+    border-radius: 8px; /* Redundant if container has overflow:hidden and same radius, but safe */
+    transition: transform 0.3s ease;
+}
+
+.video-thumbnail-container:hover img {
+    transform: scale(1.03); /* Slight zoom on image hover */
+}
+
+.play-icon-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.8em; /* Slightly smaller */
+    color: rgba(255, 255, 255, 0.9); /* Brighter */
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7); /* More defined shadow */
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0.85;
+}
+
+.video-thumbnail-container:hover .play-icon-overlay {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* Ensure the dynamically created .video-container (for iframe) still works well */
+.video-item .video-container {
+    margin-top: 0; /* Reset margin if thumbnail container already provides it */
+    /* Existing .video-container styles for aspect ratio, border, radius should apply */
+    /* If the thumbnail had margin-bottom: 10px, and it's removed when iframe appears, */
+    /* this might cause a jump. The .video-container itself has margin: 20px 0; */
+    /* Let's ensure it has some top margin if it's the first element after text */
+}
+.video-item .item-desc + .video-thumbnail-container,
+.video-item .item-meta + .video-thumbnail-container {
+     margin-top: 15px; /* Ensure space above thumbnail if desc/meta present */
+}
+.video-item .item-desc + .video-container,
+.video-item .item-meta + .video-container {
+     margin-top: 15px; /* Ensure space above iframe if desc/meta present */
+}

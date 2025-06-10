@@ -17,21 +17,29 @@ function initializeThemeChanger() {
 
     // Event listener for the toggle button
     if (themeToggleBtn) {
-        themeToggleBtn.addEventListener('click', () => {
-            const currentIsDark = document.body.classList.contains('dark-mode');
-            const newTheme = currentIsDark ? 'light' : 'dark';
-            applyTheme(newTheme);
-            localStorage.setItem('theme', newTheme);
-        });
+        // Prevent adding multiple listeners if function is called more than once
+        if (themeToggleBtn.getAttribute('data-listener-attached') !== 'true') {
+            themeToggleBtn.addEventListener('click', () => {
+                const currentIsDark = document.body.classList.contains('dark-mode');
+                const newTheme = currentIsDark ? 'light' : 'dark';
+                applyTheme(newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
+            themeToggleBtn.setAttribute('data-listener-attached', 'true');
+        }
     }
 
     // Listen for changes in OS theme preference
-    prefersDarkScheme.addEventListener('change', (e) => {
-        // Only apply if no theme is explicitly saved by the user
-        if (!localStorage.getItem('theme')) {
-            applyTheme(e.matches ? 'dark' : 'light');
-        }
-    });
+    // Check if listener already exists for this media query
+    if (!prefersDarkScheme.hasThemeChangeListener) { // Custom flag to track listener
+        prefersDarkScheme.addEventListener('change', (e) => {
+            // Only apply if no theme is explicitly saved by the user
+            if (!localStorage.getItem('theme')) {
+                applyTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+        prefersDarkScheme.hasThemeChangeListener = true;
+    }
 }
 
 // Initialize navigation (hamburger menu)
@@ -53,7 +61,6 @@ function initNavbar() {
         );
     }
 
-    // Crucially, set up the theme toggle button listener *after* navbar HTML is loaded
     initializeThemeChanger();
 }
 
@@ -61,19 +68,14 @@ function initNavbar() {
 function includeHTML() {
     const includeElements = document.querySelectorAll('[data-include]');
     let filesProcessed = 0;
+    const totalFiles = includeElements.length;
 
-    if (includeElements.length === 0) {
-        // If no includes, but navbar might exist (e.g. if HTML is pre-rendered with navbar)
-        // and theme toggle button is present, try to initialize it.
-        // This also covers case where navbar.html might not be an include but theme toggle is.
+    if (totalFiles === 0) {
+        // If no includes, ensure theme changer and video thumbnails are initialized if their elements exist
         if (document.getElementById('theme-toggle')) {
-            const testBtn = document.getElementById('theme-toggle');
-            // Check if theme changer hasn't been setup by a potential initNavbar call
-            if (testBtn && !testBtn.getAttribute('data-listener-set-main')) {
-                initializeThemeChanger();
-                if(testBtn) testBtn.setAttribute('data-listener-set-main', 'true'); // Mark as set up by this path
-            }
+            initializeThemeChanger();
         }
+        initVideoThumbnails(); // Initialize video thumbnails even if no includes
         return;
     }
 
@@ -81,19 +83,14 @@ function includeHTML() {
         const file = el.getAttribute('data-include');
         fetch(file)
             .then(res => {
-                if (res.ok) {
-                    return res.text();
-                }
+                if (res.ok) return res.text();
                 console.error('Failed to fetch include:', file, res.status);
                 return '';
             })
             .then(html => {
                 el.innerHTML = html;
                 if (file === 'navbar.html') {
-                    initNavbar(); // initNavbar now also calls initializeThemeChanger
-                    // Mark the button as listener-set by initNavbar to avoid re-init by the 'finally' block
-                    const themeBtn = document.getElementById('theme-toggle');
-                    if (themeBtn) themeBtn.setAttribute('data-listener-set-initnavbar', 'true');
+                    initNavbar();
                 }
             })
             .catch(error => {
@@ -102,14 +99,14 @@ function includeHTML() {
             })
             .finally(() => {
                 filesProcessed++;
-                // If all includes are processed and theme changer hasn't been init (e.g. no navbar.html)
-                // but a theme-toggle button exists standalone.
-                if (filesProcessed === includeElements.length) {
-                     const themeBtn = document.getElementById('theme-toggle');
-                     if (themeBtn && !themeBtn.getAttribute('data-listener-set-initnavbar') && !themeBtn.getAttribute('data-listener-set-main')) {
+                if (filesProcessed === totalFiles) {
+                    // All includes processed, now safe to initialize anything that might depend on them
+                    // or elements present on the main page.
+                    if (document.getElementById('theme-toggle') && !document.getElementById('theme-toggle').hasAttribute('data-listener-attached')) {
+                        // If navbar was not an include, or theme button is standalone
                         initializeThemeChanger();
-                        themeBtn.setAttribute('data-listener-set-main', 'true'); // Mark as set up
-                     }
+                    }
+                    initVideoThumbnails(); // Initialize video thumbnails after all includes
                 }
             });
     });
@@ -134,18 +131,48 @@ window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (navbar) {
         if (window.scrollY > 50) {
-            // navbar.style.setProperty('background', 'rgba(255, 255, 255, 0.98)', 'important');
-            // navbar.style.setProperty('backdrop-filter', 'blur(20px)', 'important');
             navbar.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.1)';
         } else {
-            // navbar.style.setProperty('background', 'rgba(255, 255, 255, 0.95)');
-            // navbar.style.setProperty('backdrop-filter', 'blur(10px)');
             navbar.style.boxShadow = 'none';
         }
     }
 });
 
-// Initial theme application on page load
+function initVideoThumbnails() {
+    const thumbnailContainers = document.querySelectorAll('.video-thumbnail-container');
+
+    thumbnailContainers.forEach(container => {
+        if (container.getAttribute('data-listener-attached') === 'true') {
+            return;
+        }
+        container.setAttribute('data-listener-attached', 'true');
+
+        container.addEventListener('click', function() {
+            const videoId = this.getAttribute('data-video-id');
+            if (!videoId) return;
+
+            this.innerHTML = ''; // Clear the thumbnail container
+
+            const iframeContainer = document.createElement('div');
+            iframeContainer.classList.add('video-container');
+
+            const iframe = document.createElement('iframe');
+            iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`);
+            iframe.setAttribute('title', 'YouTube video player');
+            iframe.setAttribute('frameborder', '0');
+            iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+            iframe.setAttribute('allowfullscreen', '');
+
+            iframeContainer.appendChild(iframe);
+            this.appendChild(iframeContainer);
+
+            this.style.cursor = 'default';
+            this.style.marginBottom = '0';
+        });
+    });
+}
+
+// Initial theme application and other initializations on page load
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -155,8 +182,9 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (prefersDark) {
         applyTheme('dark');
     } else {
-        applyTheme('light'); // Default
+        applyTheme('light');
     }
 
     includeHTML();
+    // initVideoThumbnails(); // Now called reliably within includeHTML's logic or after it.
 });
