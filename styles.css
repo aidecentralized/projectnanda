@@ -12,10 +12,22 @@
     /* Glassmorphism - Light Theme */
     --glass-navbar-bg-light: rgba(255, 255, 255, 0.75);
     --glass-navbar-border-light: rgba(255, 255, 255, 0.25);
-    --glass-hero-bg-darkblue-base: rgba(30, 41, 59, 0.75); /* Dark slate blue, 75% opacity */
-    --glass-hero-border-darkblue-base: rgba(71, 85, 105, 0.5); /* Lighter slate blue for border */
-    --glass-hero-bg-light: var(--glass-hero-bg-darkblue-base);
-    --glass-hero-border-light: var(--glass-hero-border-darkblue-base);
+
+    /* Royal Blue Hero - Light Theme */
+    --hero-royal-bg-light: linear-gradient(135deg, rgba(67, 56, 202, 0.15) 0%, rgba(99, 102, 241, 0.12) 25%, rgba(129, 140, 248, 0.1) 50%, rgba(165, 180, 252, 0.08) 75%, rgba(196, 181, 253, 0.06) 100%);
+    --hero-royal-border-color-light: rgba(99, 102, 241, 0.2);
+    --hero-royal-box-shadow-light: 0 8px 32px rgba(67, 56, 202, 0.12), 0 2px 8px rgba(99, 102, 241, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    --hero-royal-hover-box-shadow-light: 0 12px 40px rgba(67, 56, 202, 0.16), 0 4px 12px rgba(99, 102, 241, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    --hero-royal-hover-border-color-light: rgba(99, 102, 241, 0.3);
+    --hero-royal-title-text-bg-light: linear-gradient(135deg, #1e1b4b 0%, #3730a3 50%, #4338ca 100%);
+    --hero-royal-subtitle-text-color-light: #475569;
+    --hero-royal-p-text-color-light: #64748b;
+    --hero-royal-before-bg-light: linear-gradient(45deg, rgba(67, 56, 202, 0.05) 0%, transparent 50%, rgba(99, 102, 241, 0.05) 100%);
+
+    /* Original Glass Hero (now assigned to Royal Blue for light theme) */
+    --glass-hero-bg-light: var(--hero-royal-bg-light); /* Using Royal Blue for light theme hero */
+    --glass-hero-border-light: var(--hero-royal-border-color-light); /* Using Royal Blue for light theme hero */
+
     --glass-main-container-bg-light: rgba(255, 255, 255, 0.5);
     --glass-main-container-border-light: rgba(255, 255, 255, 0.2);
     --glass-btn-primary-bg-light: rgba(37, 99, 235, 0.25);
@@ -32,8 +44,8 @@
     --placeholder-text-light: #6c757d;
     --btn-secondary-hover-text-light: #ffffff;
     --hero-title-color-light: #FFFFFF;
-    --hero-subtitle-color-light: rgba(230, 230, 230, 0.9);
-    --hero-p-color-light: rgba(210, 210, 210, 0.85);
+    --hero-subtitle-color-light: var(--hero-royal-subtitle-text-color-light);
+    --hero-p-color-light: var(--hero-royal-p-text-color-light);
 
 
     /* Dark Theme */
@@ -48,8 +60,22 @@
     /* Glassmorphism - Dark Theme */
     --glass-navbar-bg-dark: rgba(45, 55, 72, 0.75);
     --glass-navbar-border-dark: rgba(255, 255, 255, 0.15);
-    --glass-hero-bg-dark: rgba(45, 55, 72, 0.70);
-    --glass-hero-border-dark: rgba(255, 255, 255, 0.15);
+
+    /* Royal Blue Hero - Dark Theme */
+    --hero-royal-bg-dark: linear-gradient(135deg, rgba(67, 56, 202, 0.2) 0%, rgba(99, 102, 241, 0.15) 25%, rgba(129, 140, 248, 0.12) 50%, rgba(165, 180, 252, 0.1) 75%, rgba(196, 181, 253, 0.08) 100%);
+    --hero-royal-border-color-dark: rgba(129, 140, 248, 0.3);
+    --hero-royal-box-shadow-dark: 0 8px 32px rgba(67, 56, 202, 0.2), 0 2px 8px rgba(99, 102, 241, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    --hero-royal-hover-box-shadow-dark: var(--hero-royal-box-shadow-dark); /* Placeholder if not different */
+    --hero-royal-hover-border-color-dark: rgba(129, 140, 248, 0.4); /* Example adjustment */
+    --hero-royal-title-text-bg-dark: linear-gradient(135deg, #e2e8f0 0%, #a5b4fc 50%, #c4b5fd 100%);
+    --hero-royal-subtitle-text-color-dark: #cbd5e1;
+    --hero-royal-p-text-color-dark: #94a3b8;
+    --hero-royal-before-bg-dark: linear-gradient(45deg, rgba(67, 56, 202, 0.1) 0%, transparent 50%, rgba(99, 102, 241, 0.1) 100%);
+
+    /* Original Glass Hero (now assigned to Royal Blue for dark theme hero) */
+    --glass-hero-bg-dark: var(--hero-royal-bg-dark);
+    --glass-hero-border-dark: var(--hero-royal-border-color-dark);
+
     --glass-main-container-bg-dark: rgba(45, 55, 72, 0.5);
     --glass-main-container-border-dark: rgba(255, 255, 255, 0.12);
     --glass-btn-primary-bg-dark: rgba(99, 179, 237, 0.25);
@@ -66,8 +92,8 @@
     --placeholder-text-dark: #a0aec0;
     --btn-secondary-hover-text-dark: #1a202c;
     --hero-title-color-dark: var(--accent-color-dark); /* Or var(--text-color-dark) for less emphasis */
-    --hero-subtitle-color-dark: var(--text-secondary-dark);
-    --hero-p-color-dark: var(--text-secondary-dark);
+    --hero-subtitle-color-dark: var(--hero-royal-subtitle-text-color-dark);
+    --hero-p-color-dark: var(--hero-royal-p-text-color-dark);
 }
 
 body {
@@ -100,9 +126,13 @@ body {
     --placeholder-text: var(--placeholder-text-light);
     --btn-primary-text: var(--accent-color-light);
     --btn-secondary-hover-text: var(--btn-secondary-hover-text-light);
-    --hero-title-color: var(--hero-title-color-light);
-    --hero-subtitle-color: var(--hero-subtitle-color-light);
-    --hero-p-color: var(--hero-p-color-light);
+    --hero-title-color: var(--hero-royal-title-text-bg-light); /* This stores the gradient for text background */
+    --hero-subtitle-color: var(--hero-royal-subtitle-text-color-light);
+    --hero-p-color: var(--hero-royal-p-text-color-light);
+    --hero-box-shadow: var(--hero-royal-box-shadow-light);
+    --hero-hover-box-shadow: var(--hero-royal-hover-box-shadow-light);
+    --hero-hover-border-color: var(--hero-royal-hover-border-color-light);
+    --hero-before-bg: var(--hero-royal-before-bg-light);
 
     /* Apply base background and text color */
     background: var(--bg-color);
@@ -148,9 +178,13 @@ body.dark-mode {
     --placeholder-text: var(--placeholder-text-dark);
     --btn-primary-text: var(--accent-color-dark);
     --btn-secondary-hover-text: var(--btn-secondary-hover-text-dark);
-    --hero-title-color: var(--hero-title-color-dark);
-    --hero-subtitle-color: var(--hero-subtitle-color-dark);
-    --hero-p-color: var(--hero-p-color-dark);
+    --hero-title-color: var(--hero-royal-title-text-bg-dark); /* Gradient for dark mode title */
+    --hero-subtitle-color: var(--hero-royal-subtitle-text-color-dark);
+    --hero-p-color: var(--hero-royal-p-text-color-dark);
+    --hero-box-shadow: var(--hero-royal-box-shadow-dark);
+    --hero-hover-box-shadow: var(--hero-royal-hover-box-shadow-dark);
+    --hero-hover-border-color: var(--hero-royal-hover-border-color-dark);
+    --hero-before-bg: var(--hero-royal-before-bg-dark);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -174,19 +208,90 @@ body.dark-mode {
 .hamburger { display: none; flex-direction: column; cursor: pointer; }
 .bar { width: 22px; height: 2px; background: var(--text-color); margin: 3px 0; transition: 0.3s; border-radius: 1px; }
 
-/* Hero Sections */
+/* Hero Sections - Royal Blue Glassmorphic Theme */
 .hero {
-    background: var(--glass-hero-bg);
-    backdrop-filter: blur(18px);
-    border: 1px solid var(--glass-hero-border);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-    padding: 140px 0 80px; text-align: center; width: 100%;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    background: var(--glass-hero-bg); /* Uses new gradient var */
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--glass-hero-border); /* Uses new border color var */
+    border-radius: 24px;
+    box-shadow: var(--hero-box-shadow); /* Uses new box-shadow var */
+    padding: 140px 0 80px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.hero .container { text-align: center; max-width: 760px; margin: 0 auto; padding: 0 24px; }
-.hero-title { font-size: 40px; font-weight: 700; margin: 0 auto 24px auto; color: var(--hero-title-color); letter-spacing: -0.02em; line-height: 1.2; text-align: center; width: 100%; text-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-.hero-subtitle { font-size: 20px; color: var(--hero-subtitle-color); margin: 0 auto 28px auto; font-weight: 450; letter-spacing: -0.01em; text-align: center; width: 100%; max-width: 600px; text-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-.hero p { font-size: 17px; color: var(--hero-p-color); line-height: 1.6; max-width: 600px; margin: 0 auto; text-align: center; width: 100%; }
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--hero-before-bg); /* Uses new gradient var */
+    pointer-events: none;
+}
+
+.hero:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--hero-hover-box-shadow); /* Uses new hover box-shadow var */
+    border-color: var(--hero-hover-border-color); /* Uses new hover border color var */
+}
+
+.hero .container {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0 auto 24px auto;
+    /* Text color achieved via background clip */
+    background: var(--hero-title-color); /* This var holds the text gradient */
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    text-shadow: 0 2px 8px rgba(67, 56, 202, 0.15); /* This shadow might need a variable if it changes per theme */
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    color: var(--hero-subtitle-color); /* Uses new text color var */
+    margin: 0 auto 28px auto;
+    font-weight: 450;
+    letter-spacing: -0.01em;
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    text-shadow: 0 1px 4px rgba(67, 56, 202, 0.08); /* This shadow might need a variable */
+    opacity: 0.9;
+}
+
+.hero p {
+    font-size: 17px;
+    color: var(--hero-p-color); /* Uses new text color var */
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    opacity: 0.85;
+}
 
 /* Main Content */
 .main-container {
@@ -272,10 +377,19 @@ body.dark-mode {
 @media (max-width: 768px) {
     .nav-menu { display: none; } .hamburger { display: flex; }
     .main-container { padding: 60px 20px 80px; }
-    .hero { padding: 120px 0 60px; }
-    .hero-title { font-size: 30px; }
-    .hero-subtitle { font-size: 18px; }
-    .hero p { font-size: 16px; }
+    /* Responsive Hero from new spec */
+    .hero {
+        backdrop-filter: blur(16px) saturate(150%);
+        -webkit-backdrop-filter: blur(16px) saturate(150%);
+        border-radius: 20px;
+        margin-left: 12px;
+        margin-right: 12px;
+        width: auto;
+        padding: 120px 0 60px; /* Retained original padding for consistency */
+    }
+    .hero-title { font-size: 32px; } /* New spec size */
+    .hero-subtitle { font-size: 18px; } /* Retained original responsive size */
+    .hero p { font-size: 16px; } /* Retained original responsive size */
     .section { margin-bottom: 48px; }
     .section-title { font-size: 24px; margin-bottom: 20px; }
     .item-title { font-size: 19px; }
@@ -283,10 +397,10 @@ body.dark-mode {
 }
 @media (max-width: 600px) {
     .container { padding: 0 20px; }
-    .hero { padding: 100px 0 50px; }
-    .hero-title { font-size: 26px; }
-    .hero-subtitle { font-size: 16px; }
-    .hero p { font-size: 15px; }
+    .hero { padding: 100px 0 50px; /* Retained original padding */ }
+    .hero-title { font-size: 32px; /* New spec size, using 768px version as 600px not specified in new block */ }
+    .hero-subtitle { font-size: 18px; /* Retained original responsive size, using 768px version */ }
+    .hero p { font-size: 15px; } /* Retained original responsive size */
     .section-title { font-size: 20px; margin-bottom: 16px; }
     .item-title { font-size: 18px; }
     .section { margin-bottom: 40px; }
