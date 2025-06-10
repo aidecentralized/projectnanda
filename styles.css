@@ -341,3 +341,55 @@ body.dark-mode {
 .about-text-card p {
     margin-bottom: 0;
 }
+
+/* Styling enhancements for paper items on papers.html */
+.paper-item {
+    /* .item already provides base card styling (bg, border, shadow, border-radius, overall padding) */
+    /* Add a specific left accent border */
+    border-left: 3px solid var(--accent-color);
+    /* Adjust left padding slightly to maintain internal alignment if .item had uniform padding.
+       If .item padding was, e.g., 32px, this makes internal left padding 29px + 3px border.
+       If .item padding was already asymmetric or used logical properties, this might need review.
+       Assuming current .item padding is uniform (e.g. 32px or 24px on mobile). */
+    padding-left: calc(32px - 3px); /* Example for desktop .item padding */
+}
+
+/* Responsive adjustment for paper-item padding-left if .item padding changes */
+@media (max-width: 600px) {
+    .paper-item {
+        padding-left: calc(24px - 3px); /* Example for mobile .item padding */
+    }
+}
+
+.paper-item .item-title {
+    /* Font size, weight, color are already set by general .item-title rule. */
+    /* No specific changes here unless needed after visual review. */
+}
+
+.paper-item .item-title a {
+    /* Font size, weight, color are already set by general .item-title a rule. */
+}
+
+.paper-meta {
+    font-size: 0.9em;
+    color: var(--text-secondary);
+    margin-top: 0.75em; /* Increased space below title */
+    margin-bottom: 1em;  /* Increased space above summary */
+}
+
+.paper-meta span {
+    display: block;
+    margin-bottom: 0.35em; /* Space between meta items */
+    line-height: 1.4; /* Adjust line height for stacked spans */
+}
+
+.paper-meta span:last-child {
+    margin-bottom: 0;
+}
+
+.paper-summary {
+    font-size: 0.95em;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 0; /* As it's the last element in the card */
+}
