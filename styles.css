@@ -1,197 +1,11 @@
-/* Reset and Base Styles */
-:root {
-    /* Light Theme (Original with -light suffix) */
-    --bg-color-light: #f8fafc;
-    --text-color-light: #1e293b;
-    --text-secondary-light: #475569;
-    --surface-color-light: #ffffff; /* Opaque card/element backgrounds */
-    --border-color-light: #d1d5db; /* Standard borders */
-    --accent-color-light: #2563eb;
-    --accent-hover-light: #1d4ed8;
-
-    /* Glassmorphism - Light Theme */
-    --glass-navbar-bg-light: rgba(255, 255, 255, 0.75);
-    --glass-navbar-border-light: rgba(255, 255, 255, 0.25);
-    --glass-hero-bg-darkblue-base: rgba(30, 41, 59, 0.75); /* Dark slate blue, 75% opacity */
-    --glass-hero-border-darkblue-base: rgba(71, 85, 105, 0.5); /* Lighter slate blue for border */
-    --glass-hero-bg-light: var(--glass-hero-bg-darkblue-base);
-    --glass-hero-border-light: var(--glass-hero-border-darkblue-base);
-    --glass-main-container-bg-light: rgba(255, 255, 255, 0.5);
-    --glass-main-container-border-light: rgba(255, 255, 255, 0.2);
-    --glass-btn-primary-bg-light: rgba(37, 99, 235, 0.25);
-    --glass-btn-primary-border-light: rgba(37, 99, 235, 0.4);
-    --glass-btn-primary-hover-bg-light: rgba(29, 78, 216, 0.35);
-    --glass-btn-primary-hover-border-light: rgba(29, 78, 216, 0.5);
-
-    --card-bg-light: var(--surface-color-light); /* Opaque items on glass .main-container */
-    --card-border-light: var(--border-color-light);
-    --active-nav-bg-light: rgba(37,99,235,0.07);
-    --about-text-card-bg-light: rgba(255, 255, 255, 0.92);
-    --placeholder-bg-light: #e9ecef;
-    --placeholder-border-light: #ced4da;
-    --placeholder-text-light: #6c757d;
-    --btn-secondary-hover-text-light: #ffffff;
-    --hero-title-color-light: #FFFFFF;
-    --hero-subtitle-color-light: rgba(230, 230, 230, 0.9);
-    --hero-p-color-light: rgba(210, 210, 210, 0.85);
-
-
-    /* Dark Theme */
-    --bg-color-dark: #1a202c; /* Dark Slate */
-    --text-color-dark: #e2e8f0; /* Light Gray */
-    --text-secondary-dark: #a0aec0; /* Medium Gray */
-    --surface-color-dark: #2d3748; /* Darker Gray for opaque elements */
-    --border-color-dark: #4a5568; /* Gray for borders */
-    --accent-color-dark: #63b3ed; /* Light Blue */
-    --accent-hover-dark: #4299e1; /* Slightly darker Light Blue */
-
-    /* Glassmorphism - Dark Theme */
-    --glass-navbar-bg-dark: rgba(45, 55, 72, 0.75);
-    --glass-navbar-border-dark: rgba(255, 255, 255, 0.15);
-    --glass-hero-bg-dark: rgba(45, 55, 72, 0.70);
-    --glass-hero-border-dark: rgba(255, 255, 255, 0.15);
-    --glass-main-container-bg-dark: rgba(45, 55, 72, 0.5);
-    --glass-main-container-border-dark: rgba(255, 255, 255, 0.12);
-    --glass-btn-primary-bg-dark: rgba(99, 179, 237, 0.25);
-    --glass-btn-primary-border-dark: rgba(99, 179, 237, 0.4);
-    --glass-btn-primary-hover-bg-dark: rgba(66, 153, 225, 0.35);
-    --glass-btn-primary-hover-border-dark: rgba(66, 153, 225, 0.5);
-
-    --card-bg-dark: var(--surface-color-dark);
-    --card-border-dark: var(--border-color-dark);
-    --active-nav-bg-dark: rgba(99, 179, 237, 0.1);
-    --about-text-card-bg-dark: rgba(45, 55, 72, 0.92);
-    --placeholder-bg-dark: #3a4a5f;
-    --placeholder-border-dark: #5a6a7f;
-    --placeholder-text-dark: #a0aec0;
-    --btn-secondary-hover-text-dark: #1a202c;
-    --hero-title-color-dark: var(--accent-color-dark); /* Or var(--text-color-dark) for less emphasis */
-    --hero-subtitle-color-dark: var(--text-secondary-dark);
-    --hero-p-color-dark: var(--text-secondary-dark);
-}
-
-body {
-    /* Assign default (light) values to current theme variables */
-    --bg-color: var(--bg-color-light);
-    --text-color: var(--text-color-light);
-    --text-secondary: var(--text-secondary-light);
-    --surface-color: var(--surface-color-light);
-    --border-color: var(--border-color-light);
-    --accent-color: var(--accent-color-light);
-    --accent-hover: var(--accent-hover-light);
-
-    --glass-navbar-bg: var(--glass-navbar-bg-light);
-    --glass-navbar-border: var(--glass-navbar-border-light);
-    --glass-hero-bg: var(--glass-hero-bg-light);
-    --glass-hero-border: var(--glass-hero-border-light);
-    --glass-main-container-bg: var(--glass-main-container-bg-light);
-    --glass-main-container-border: var(--glass-main-container-border-light);
-    --glass-btn-primary-bg: var(--glass-btn-primary-bg-light);
-    --glass-btn-primary-border: var(--glass-btn-primary-border-light);
-    --glass-btn-primary-hover-bg: var(--glass-btn-primary-hover-bg-light);
-    --glass-btn-primary-hover-border: var(--glass-btn-primary-hover-border-light);
-
-    --card-bg: var(--card-bg-light);
-    --card-border: var(--card-border-light);
-    --active-nav-bg: var(--active-nav-bg-light);
-    --about-text-card-bg: var(--about-text-card-bg-light);
-    --placeholder-bg: var(--placeholder-bg-light);
-    --placeholder-border: var(--placeholder-border-light);
-    --placeholder-text: var(--placeholder-text-light);
-    --btn-primary-text: var(--accent-color-light);
-    --btn-secondary-hover-text: var(--btn-secondary-hover-text-light);
-    --hero-title-color: var(--hero-title-color-light);
-    --hero-subtitle-color: var(--hero-subtitle-color-light);
-    --hero-p-color: var(--hero-p-color-light);
-
-    /* Apply base background and text color */
-    background: var(--bg-color);
-    color: var(--text-color);
-
-    /* Transitions for smooth theme change */
-    transition: background-color 0.3s ease, color 0.3s ease;
-
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    line-height: 1.65;
-    margin: 0; padding: 0;
-    font-size: 16px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-body.dark-mode {
-    --bg-color: var(--bg-color-dark);
-    --text-color: var(--text-color-dark);
-    --text-secondary: var(--text-secondary-dark);
-    --surface-color: var(--surface-color-dark);
-    --border-color: var(--border-color-dark);
-    --accent-color: var(--accent-color-dark);
-    --accent-hover: var(--accent-hover-dark);
-
-    --glass-navbar-bg: var(--glass-navbar-bg-dark);
-    --glass-navbar-border: var(--glass-navbar-border-dark);
-    --glass-hero-bg: var(--glass-hero-bg-dark);
-    --glass-hero-border: var(--glass-hero-border-dark);
-    --glass-main-container-bg: var(--glass-main-container-bg-dark);
-    --glass-main-container-border: var(--glass-main-container-border-dark);
-    --glass-btn-primary-bg: var(--glass-btn-primary-bg-dark);
-    --glass-btn-primary-border: var(--glass-btn-primary-border-dark);
-    --glass-btn-primary-hover-bg: var(--glass-btn-primary-hover-bg-dark);
-    --glass-btn-primary-hover-border: var(--glass-btn-primary-hover-border-dark);
-
-    --card-bg: var(--card-bg-dark);
-    --card-border: var(--card-border-dark);
-    --active-nav-bg: var(--active-nav-bg-dark);
-    --about-text-card-bg: var(--about-text-card-bg-dark);
-    --placeholder-bg: var(--placeholder-bg-dark);
-    --placeholder-border: var(--placeholder-border-dark);
-    --placeholder-text: var(--placeholder-text-dark);
-    --btn-primary-text: var(--accent-color-dark);
-    --btn-secondary-hover-text: var(--btn-secondary-hover-text-dark);
-    --hero-title-color: var(--hero-title-color-dark);
-    --hero-subtitle-color: var(--hero-subtitle-color-dark);
-    --hero-p-color: var(--hero-p-color-dark);
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-.container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
-
-/* Navigation */
-.navbar {
-    background: var(--glass-navbar-bg);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--glass-navbar-border);
-    position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 64px;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-.nav-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; height: 100%; text-align: left; }
-.nav-logo .brand { font-size: 19px; font-weight: 700; color: var(--accent-color); text-decoration: none; letter-spacing: -0.02em; }
-.nav-menu { display: flex; list-style: none; gap: 32px; }
-.nav-link { color: var(--text-secondary); text-decoration: none; font-size: 15px; font-weight: 500; transition: color 0.15s ease; letter-spacing: -0.01em; }
-.nav-link:hover { color: var(--accent-color); }
-.nav-link.active { color: var(--accent-color); font-weight: 600; border-bottom: 2px solid var(--accent-color); background: var(--active-nav-bg); border-radius: 3px 3px 0 0; }
-.hamburger { display: none; flex-direction: column; cursor: pointer; }
-.bar { width: 22px; height: 2px; background: var(--text-color); margin: 3px 0; transition: 0.3s; border-radius: 1px; }
-
-/* Hero Sections */
 /* Hero Sections - Royal Blue Glassmorphic Theme */
 .hero {
-    background: linear-gradient(135deg, 
-        rgba(67, 56, 202, 0.15) 0%, 
-        rgba(99, 102, 241, 0.12) 25%,
-        rgba(129, 140, 248, 0.1) 50%,
-        rgba(165, 180, 252, 0.08) 75%,
-        rgba(196, 181, 253, 0.06) 100%
-    );
+    background: var(--glass-hero-bg);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(99, 102, 241, 0.2);
+    border: 1px solid var(--glass-hero-border);
     border-radius: 24px;
-    box-shadow: 
-        0 8px 32px rgba(67, 56, 202, 0.12),
-        0 2px 8px rgba(99, 102, 241, 0.08),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    box-shadow: var(--hero-box-shadow);
     padding: 140px 0 80px; 
     text-align: center; 
     width: 100%;
@@ -207,21 +21,14 @@ body.dark-mode {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, 
-        rgba(67, 56, 202, 0.05) 0%, 
-        transparent 50%, 
-        rgba(99, 102, 241, 0.05) 100%
-    );
+    background: var(--hero-before-bg);
     pointer-events: none;
 }
 
 .hero:hover {
     transform: translateY(-2px);
-    box-shadow: 
-        0 12px 40px rgba(67, 56, 202, 0.16),
-        0 4px 12px rgba(99, 102, 241, 0.12),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15);
-    border-color: rgba(99, 102, 241, 0.3);
+    box-shadow: var(--hero-hover-box-shadow);
+    border-color: var(--hero-hover-border-color);
 }
 
 .hero .container { 
@@ -237,16 +44,17 @@ body.dark-mode {
     font-size: 40px; 
     font-weight: 700; 
     margin: 0 auto 24px auto; 
-    color: #1e1b4b;
+    background: var(--hero-title-color);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
     letter-spacing: -0.02em; 
     line-height: 1.2; 
     text-align: center; 
     width: 100%; 
     text-shadow: 0 2px 8px rgba(67, 56, 202, 0.15);
-    background: linear-gradient(135deg, #1e1b4b 0%, #3730a3 50%, #4338ca 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
     position: relative;
 }
 
@@ -324,210 +132,4 @@ body.dark-mode {
     .hero p {
         color: #94a3b8;
     }
-}
-
-/* Main Content */
-.main-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 64px 24px 100px;
-    background-color: var(--glass-main-container-bg);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-main-container-border);
-    border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-.section {
-    margin-bottom: 64px;
-    padding: 32px 0;
-}
-.section:last-child { margin-bottom: 0; }
-.section-title { font-size: 28px; font-weight: 600; margin: 0 0 24px 0; color: var(--accent-color); letter-spacing: -0.015em; text-align: center; line-height: 1.3; }
-.section p { font-size: 16px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 20px; }
-
-/* Cards and Items */
-.event-card, .item {
-    background: var(--card-bg);
-    border-radius: 12px;
-    border: 1px solid var(--card-border);
-    padding: 32px;
-    margin-bottom: 24px;
-    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-.event-card:hover, .item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-    border-color: var(--accent-color);
-}
-.item-list { list-style: none; padding: 0; margin: 0; }
-.item-title { font-size: 20px; font-weight: 600; margin: 0 0 8px 0; color: var(--accent-color); line-height: 1.4; letter-spacing: -0.01em; }
-.item-title a { color: var(--accent-color); text-decoration: none; transition: color 0.15s ease; }
-.item-title a:hover { color: var(--accent-hover); }
-.item-desc { font-size: 16px; color: var(--text-secondary); margin: 0 0 12px 0; line-height: 1.6; }
-.item-meta, .event-meta { font-size: 14px; color: var(--text-secondary); margin: 0 0 16px 0; font-weight: 450; display: flex; flex-wrap: wrap; gap: 16px; }
-
-/* Buttons and Links */
-.btn {
-    display: inline-block; padding: 12px 24px;
-    background: var(--glass-btn-primary-bg); color: var(--btn-primary-text); text-decoration: none;
-    border-radius: 8px;
-    font-size: 15px; font-weight: 500;
-    border: 1px solid var(--glass-btn-primary-border); cursor: pointer; letter-spacing: -0.01em;
-    backdrop-filter: blur(8px);
-    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
-}
-.btn:hover {
-    background: var(--glass-btn-primary-hover-bg);
-    border-color: var(--glass-btn-primary-hover-border);
-    transform: translateY(-1px);
-}
-.btn-secondary { background: transparent; color: var(--accent-color); border: 1px solid var(--accent-color); backdrop-filter: none; } /* remove backdrop for secondary */
-.btn-secondary:hover { background: var(--accent-color); color: var(--btn-secondary-hover-text); }
-.btn-details { background: transparent; color: var(--accent-color); border: 1px solid var(--accent-color); backdrop-filter: none; }
-.btn-details:hover { background: var(--accent-color); color: var(--btn-secondary-hover-text); } /* Assuming same hover as secondary */
-.link { color: var(--accent-color); text-decoration: none; font-size: 15px; font-weight: 500; transition: color 0.15s ease; }
-.link:hover { color: var(--accent-hover); text-decoration: underline; }
-
-/* Footer */
-.footer {
-    background: var(--bg-color);
-    border-top: 1px solid var(--border-color);
-    padding: 48px 0 24px; margin-top: 80px;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-.footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 32px; }
-.footer h3, .footer h4 { font-size: 15px; font-weight: 600; margin-bottom: 16px; color: var(--text-color); letter-spacing: -0.01em; }
-.footer p, .footer li { font-size: 14px; color: var(--text-secondary); margin-bottom: 8px; line-height: 1.5; }
-.footer ul { list-style: none; padding: 0; }
-.footer a.footer-link { color: var(--accent-color); text-decoration: none; font-size: 14px; transition: color 0.15s ease; }
-.footer a.footer-link:hover { color: var(--accent-hover); }
-.footer-bottom { text-align: center; padding-top: 24px; border-top: 1px solid var(--border-color); }
-.footer-bottom p { font-size: 13px; color: var(--text-secondary); }
-
-/* Responsive */
-@media (max-width: 768px) {
-    .nav-menu { display: none; } .hamburger { display: flex; }
-    .main-container { padding: 60px 20px 80px; }
-    .hero { padding: 120px 0 60px; }
-    .hero-title { font-size: 30px; }
-    .hero-subtitle { font-size: 18px; }
-    .hero p { font-size: 16px; }
-    .section { margin-bottom: 48px; }
-    .section-title { font-size: 24px; margin-bottom: 20px; }
-    .item-title { font-size: 19px; }
-    .nav-container { padding: 0 20px; }
-}
-@media (max-width: 600px) {
-    .container { padding: 0 20px; }
-    .hero { padding: 100px 0 50px; }
-    .hero-title { font-size: 26px; }
-    .hero-subtitle { font-size: 16px; }
-    .hero p { font-size: 15px; }
-    .section-title { font-size: 20px; margin-bottom: 16px; }
-    .item-title { font-size: 18px; }
-    .section { margin-bottom: 40px; }
-    .item, .event-card { padding: 24px; }
-    .main-container { padding: 50px 16px 60px; }
-}
-
-/* Icon styling for paper links */
-.item-title .fas.fa-external-link-alt {
-    font-size: 0.85em;
-    margin-left: 0.5em;
-    opacity: 0.6;
-    transition: opacity 0.15s ease;
-    vertical-align: baseline;
-}
-.item:hover .item-title .fas.fa-external-link-alt {
-    opacity: 0.8;
-}
-
-/* Styling for div based graphic placeholders */
-.graphic-placeholder {
-    min-height: 150px;
-    background-color: var(--placeholder-bg);
-    border: 2px dashed var(--placeholder-border);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--placeholder-text);
-    font-size: 16px;
-    padding: 20px;
-    margin: 30px auto;
-    max-width: 70%;
-    box-sizing: border-box;
-    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-}
-.graphic-placeholder::before {
-    content: "Placeholder: " attr(data-placeholder-info);
-    display: block;
-}
-
-.about-text-card {
-    background: var(--about-text-card-bg);
-    padding: 28px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-    max-width: 700px;
-    margin: 0 auto 30px auto;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-.about-text-card p {
-    margin-bottom: 0;
-}
-
-/* Styling enhancements for paper items on papers.html */
-.paper-item {
-    /* .item already provides base card styling (bg, border, shadow, border-radius, overall padding) */
-    /* Add a specific left accent border */
-    border-left: 3px solid var(--accent-color);
-    /* Adjust left padding slightly to maintain internal alignment if .item had uniform padding.
-       If .item padding was, e.g., 32px, this makes internal left padding 29px + 3px border.
-       If .item padding was already asymmetric or used logical properties, this might need review.
-       Assuming current .item padding is uniform (e.g. 32px or 24px on mobile). */
-    padding-left: calc(32px - 3px); /* Example for desktop .item padding */
-}
-
-/* Responsive adjustment for paper-item padding-left if .item padding changes */
-@media (max-width: 600px) {
-    .paper-item {
-        padding-left: calc(24px - 3px); /* Example for mobile .item padding */
-    }
-}
-
-.paper-item .item-title {
-    /* Font size, weight, color are already set by general .item-title rule. */
-    /* No specific changes here unless needed after visual review. */
-}
-
-.paper-item .item-title a {
-    /* Font size, weight, color are already set by general .item-title a rule. */
-}
-
-.paper-meta {
-    font-size: 0.9em;
-    color: var(--text-secondary);
-    margin-top: 0.75em; /* Increased space below title */
-    margin-bottom: 1em;  /* Increased space above summary */
-}
-
-.paper-meta span {
-    display: block;
-    margin-bottom: 0.35em; /* Space between meta items */
-    line-height: 1.4; /* Adjust line height for stacked spans */
-}
-
-.paper-meta span:last-child {
-    margin-bottom: 0;
-}
-
-.paper-summary {
-    font-size: 0.95em;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    margin-bottom: 0; /* As it's the last element in the card */
 }
