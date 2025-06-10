@@ -12,8 +12,10 @@
     /* Glassmorphism - Light Theme */
     --glass-navbar-bg-light: rgba(255, 255, 255, 0.75);
     --glass-navbar-border-light: rgba(255, 255, 255, 0.25);
-    --glass-hero-bg-light: rgba(255, 255, 255, 0.70);
-    --glass-hero-border-light: rgba(255, 255, 255, 0.25);
+    --glass-hero-bg-darkblue-base: rgba(30, 41, 59, 0.75); /* Dark slate blue, 75% opacity */
+    --glass-hero-border-darkblue-base: rgba(71, 85, 105, 0.5); /* Lighter slate blue for border */
+    --glass-hero-bg-light: var(--glass-hero-bg-darkblue-base);
+    --glass-hero-border-light: var(--glass-hero-border-darkblue-base);
     --glass-main-container-bg-light: rgba(255, 255, 255, 0.5);
     --glass-main-container-border-light: rgba(255, 255, 255, 0.2);
     --glass-btn-primary-bg-light: rgba(37, 99, 235, 0.25);
@@ -29,6 +31,9 @@
     --placeholder-border-light: #ced4da;
     --placeholder-text-light: #6c757d;
     --btn-secondary-hover-text-light: #ffffff;
+    --hero-title-color-light: #FFFFFF;
+    --hero-subtitle-color-light: rgba(230, 230, 230, 0.9);
+    --hero-p-color-light: rgba(210, 210, 210, 0.85);
 
 
     /* Dark Theme */
@@ -60,6 +65,9 @@
     --placeholder-border-dark: #5a6a7f;
     --placeholder-text-dark: #a0aec0;
     --btn-secondary-hover-text-dark: #1a202c;
+    --hero-title-color-dark: var(--accent-color-dark); /* Or var(--text-color-dark) for less emphasis */
+    --hero-subtitle-color-dark: var(--text-secondary-dark);
+    --hero-p-color-dark: var(--text-secondary-dark);
 }
 
 body {
@@ -92,6 +100,9 @@ body {
     --placeholder-text: var(--placeholder-text-light);
     --btn-primary-text: var(--accent-color-light);
     --btn-secondary-hover-text: var(--btn-secondary-hover-text-light);
+    --hero-title-color: var(--hero-title-color-light);
+    --hero-subtitle-color: var(--hero-subtitle-color-light);
+    --hero-p-color: var(--hero-p-color-light);
 
     /* Apply base background and text color */
     background: var(--bg-color);
@@ -137,6 +148,9 @@ body.dark-mode {
     --placeholder-text: var(--placeholder-text-dark);
     --btn-primary-text: var(--accent-color-dark);
     --btn-secondary-hover-text: var(--btn-secondary-hover-text-dark);
+    --hero-title-color: var(--hero-title-color-dark);
+    --hero-subtitle-color: var(--hero-subtitle-color-dark);
+    --hero-p-color: var(--hero-p-color-dark);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -170,9 +184,9 @@ body.dark-mode {
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 .hero .container { text-align: center; max-width: 760px; margin: 0 auto; padding: 0 24px; }
-.hero-title { font-size: 40px; font-weight: 700; margin: 0 auto 24px auto; color: var(--accent-color); letter-spacing: -0.02em; line-height: 1.2; text-align: center; width: 100%; text-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-.hero-subtitle { font-size: 20px; color: var(--text-secondary); margin: 0 auto 28px auto; font-weight: 450; letter-spacing: -0.01em; text-align: center; width: 100%; max-width: 600px; text-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-.hero p { font-size: 17px; color: var(--text-secondary); line-height: 1.6; max-width: 600px; margin: 0 auto; text-align: center; width: 100%; }
+.hero-title { font-size: 40px; font-weight: 700; margin: 0 auto 24px auto; color: var(--hero-title-color); letter-spacing: -0.02em; line-height: 1.2; text-align: center; width: 100%; text-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+.hero-subtitle { font-size: 20px; color: var(--hero-subtitle-color); margin: 0 auto 28px auto; font-weight: 450; letter-spacing: -0.01em; text-align: center; width: 100%; max-width: 600px; text-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+.hero p { font-size: 17px; color: var(--hero-p-color); line-height: 1.6; max-width: 600px; margin: 0 auto; text-align: center; width: 100%; }
 
 /* Main Content */
 .main-container {
