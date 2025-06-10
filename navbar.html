@@ -11,7 +11,7 @@
         </div>
         <ul class="nav-menu">
             <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
-            <li><a href="index.html#about" class="nav-link" id="nav-about">About</a></li>
+            <li><a href="about.html" class="nav-link" id="nav-about">About</a></li>
             <li><a href="papers.html" class="nav-link" id="nav-papers">Papers</a></li>
             <li><a href="videos.html" class="nav-link" id="nav-videos">Videos</a></li>
             <li><a href="blog.html" class="nav-link" id="nav-blog">Blog</a></li>
@@ -26,24 +26,25 @@
     </div>
 </nav>
 <script>
-// Highlight active nav link (original client-side script)
+// Highlight active nav link
 document.addEventListener('DOMContentLoaded', () => {
     const path = window.location.pathname.split('/').pop();
     const navMap = {
       'index.html': 'nav-home',
+      'about.html': 'nav-about', // Updated
       'papers.html': 'nav-papers',
       'videos.html': 'nav-videos',
       'blog.html': 'nav-blog',
       'applications.html': 'nav-applications',
       'events.html': 'nav-events'
     };
+
     // Handle case where path might be empty if accessing root (e.g. "domain.com/")
     const currentFile = path === '' ? 'index.html' : path;
     let activeId = navMap[currentFile];
 
-    if (!activeId && window.location.hash === '#about' && currentFile === 'index.html') {
-        activeId = 'nav-about';
-    } else if (!activeId && currentFile === 'index.html') {
+    // If no specific match from navMap (e.g. on root path, currentFile is index.html), default to home.
+    if (!activeId && currentFile === 'index.html') {
          activeId = 'nav-home';
     }
 
