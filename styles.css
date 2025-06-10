@@ -590,3 +590,126 @@ body.dark-mode {
 .grid-span-all {
     grid-column: 1 / -1;
 }
+
+/* Index Page - New Main Title/Subtitle */
+.page-main-title {
+    /* Uses inline styles for now, can be moved to CSS if preferred */
+    /* text-align: center; margin-bottom: 12px; */
+    /* Consider using theme variables if color needs to change for dark mode */
+    color: var(--text-color); /* Example */
+}
+
+.page-main-subtitle {
+    /* Uses inline styles for now, can be moved to CSS if preferred */
+    /* text-align: center; font-size: 1.25em; color: var(--text-secondary); margin-bottom: 40px; */
+}
+
+/* Index Page - Quick Links */
+.quick-links-container {
+    /* Uses inline styles for layout (flex, center, gap, margin) */
+    /* Additional styling for .btn-quick-link if needed beyond .btn */
+}
+.btn-quick-link {
+    /* Inherits .btn styles. Specific overrides if needed: */
+    /* background: var(--surface-color); */ /* Example: make them less prominent than main CTAs */
+    /* color: var(--accent-color); */
+    /* border: 1px solid var(--border-color); */
+    padding: 10px 18px; /* Slightly smaller */
+}
+/* .btn-quick-link:hover { ... } */
+
+/* Index Page - Section Item Grids (common styling for new grids) */
+.components-grid,
+.learn-more-grid,
+.partnership-grid,
+.working-groups-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px; /* Or var(--grid-gap) */
+    margin-top: 24px;
+}
+
+/* Styling for items within these grids if they don't use .item or need overrides */
+.component-item, /* Already has .item */
+.learn-more-item, /* Already has .item */
+.partnership-item, /* Already has .item */
+.working-group-item { /* Already has .item - simple text content might need padding if .item doesn't provide enough */
+    /* Ensure .item provides good default padding. If not, add here. */
+    /* For .working-group-item, which is just text, ensure it looks good as a card */
+     text-align: center; /* Example for working group items */
+}
+
+.learn-more-item .btn-small {
+    /* Inherits .btn. Specific overrides for a smaller button: */
+    padding: 8px 16px;
+    font-size: 0.9em;
+}
+
+/* Index Page - Global Network & Testimonials (Placeholders already styled by .graphic-placeholder) */
+.global-network-section .graphic-placeholder,
+.testimonials-section .graphic-placeholder {
+    /* .graphic-placeholder already has styles. Add specific overrides if needed. */
+}
+
+/* Index Page - CTA Sections */
+.cta-section {
+    padding: 32px 24px; /* Add some padding */
+    text-align: center;
+    /* Consider distinct background if not relying on main-container glass */
+    /* background: var(--surface-color); */
+    /* border-radius: var(--card-border-radius); */
+    /* margin-bottom: var(--section-margin-bottom); */ /* Sections already have margin from .section class */
+}
+.cta-section .section-title {
+    /* Already styled by global .section-title */
+}
+.cta-section p {
+    color: var(--text-secondary); /* Ensure text color is appropriate */
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 24px;
+}
+.cta-section .btn {
+    /* General .btn style applies. Add specific CTA button style if needed */
+}
+
+/* Index Page - Core Contributors */
+.core-contributors-section p {
+    /* Paragraph with Slack link */
+}
+.core-contributors-section .graphic-placeholder {
+    /* Styles for this specific placeholder */
+}
+
+/* Index Page - Contact and Social Links */
+.contact-social-section {
+    text-align: center;
+}
+.contact-social-section p {
+    color: var(--text-secondary);
+}
+.contact-social-section .link {
+    /* Standard .link style applies */
+}
+.social-links-index {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.social-links-index p { /* "Join the conversation:" text */
+    margin-bottom:12px;
+    font-size: 1.1em;
+    font-weight: 500;
+    color: var(--text-color);
+}
+.btn-icon { /* For social media buttons */
+    /* Inherits .btn. Add icon specific styles */
+    padding: 10px 15px;
+    margin: 0 5px; /* From inline style */
+}
+.btn-icon i {
+    margin-right: 8px; /* Space between icon and text if any */
+}
+.qr-code-container .graphic-placeholder {
+    /* Styles for QR code placeholder */
+}
